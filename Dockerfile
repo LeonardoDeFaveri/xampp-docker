@@ -53,5 +53,7 @@ EXPOSE 80 443 3306
 ADD init.sh /usr/local/bin/init.sh
 RUN chmod 777 /usr/local/bin/init.sh
 
+RUN echo "PS1=\"\[\033[38;5;11m\]\u@\h\[$(tput sgr0)\]:\[$(tput sgr0)\]\[\033[38;5;172m\][\w]\[$(tput sgr0)\]\[\033[38;5;9m\]\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/')\[$(tput sgr0)\]\\$ \[$(tput sgr0)\]\"" >> /root/.bashrc
+
 # Start the init script
 ENTRYPOINT ["/usr/local/bin/init.sh"]
