@@ -1,6 +1,3 @@
-# Build with:
-# 	docker build -t cswl/xampp .
-
 FROM ubuntu
 
 ENV TERM=xterm
